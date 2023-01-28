@@ -22,7 +22,6 @@ class Genre(models.Model):
         return self.name
 
 
-
 class Book(models.Model):
     """
     Model representing a book (but not a specific copy of a book).
@@ -48,7 +47,6 @@ class Book(models.Model):
         String for representing the Model object.
         """
         return self.title
-
 
     def get_absolute_url(self):
         """
@@ -77,7 +75,6 @@ class BookInstance(models.Model):
 
     class Meta:
         ordering = ["due_back"]
-
 
     def __str__(self):
         """
