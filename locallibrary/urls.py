@@ -20,6 +20,8 @@ from django.urls import path
 from django.urls import include
 from django.views.generic import RedirectView
 
+from catalog.views import RegisterFormView, UpdateProfile, UserProfile
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
@@ -28,6 +30,10 @@ urlpatterns = [
 
 urlpatterns += [
     path('catalog/', include('catalog.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/register/', RegisterFormView.as_view(), name="register"),
+    path('accounts/update_profile/', UpdateProfile.as_view(), name="update_profile"),
+    path('accounts/my_profile/', UserProfile.as_view(), name="profile"),
 ]
 
 # Добавьте URL соотношения, чтобы перенаправить запросы с корневого URL, на URL приложения
